@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0E8F9F1BF123515BEF11F709 /* Pods_RxMemoEx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BCF2E9457ABE522B8D48CB /* Pods_RxMemoEx.framework */; };
 		5C22A4162376C6AB0069D5F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C22A4152376C6AB0069D5F6 /* AppDelegate.swift */; };
 		5C22A4182376C6AB0069D5F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C22A4172376C6AB0069D5F6 /* SceneDelegate.swift */; };
-		5C22A41A2376C6AB0069D5F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C22A4192376C6AB0069D5F6 /* ViewController.swift */; };
 		5C22A41D2376C6AB0069D5F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C22A41B2376C6AB0069D5F6 /* Main.storyboard */; };
 		5C22A4202376C6AB0069D5F6 /* RxMemoEx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C22A41E2376C6AB0069D5F6 /* RxMemoEx.xcdatamodeld */; };
 		5C22A4222376C6AD0069D5F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C22A4212376C6AD0069D5F6 /* Assets.xcassets */; };
@@ -21,7 +20,6 @@
 		5C22A4122376C6AB0069D5F6 /* RxMemoEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMemoEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C22A4152376C6AB0069D5F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C22A4172376C6AB0069D5F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C22A4192376C6AB0069D5F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C22A41C2376C6AB0069D5F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C22A41F2376C6AB0069D5F6 /* RxMemoEx.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RxMemoEx.xcdatamodel; sourceTree = "<group>"; };
 		5C22A4212376C6AD0069D5F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,6 +50,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5C1910732376D1AB00E76FEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5C1910742376D1B000E76FEB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5C22A41B2376C6AB0069D5F6 /* Main.storyboard */,
+				5C22A4232376C6AD0069D5F6 /* LaunchScreen.storyboard */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5C1910752376D1B900E76FEB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5C1910762376D1C600E76FEB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5C1910772376D1E700E76FEB /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
 		5C22A4092376C6AB0069D5F6 = {
 			isa = PBXGroup;
 			children = (
@@ -73,12 +108,14 @@
 		5C22A4142376C6AB0069D5F6 /* RxMemoEx */ = {
 			isa = PBXGroup;
 			children = (
+				5C1910772376D1E700E76FEB /* Scene */,
+				5C1910762376D1C600E76FEB /* Service */,
+				5C1910752376D1B900E76FEB /* ViewModel */,
+				5C1910742376D1B000E76FEB /* ViewController */,
+				5C1910732376D1AB00E76FEB /* Model */,
 				5C22A4152376C6AB0069D5F6 /* AppDelegate.swift */,
 				5C22A4172376C6AB0069D5F6 /* SceneDelegate.swift */,
-				5C22A4192376C6AB0069D5F6 /* ViewController.swift */,
-				5C22A41B2376C6AB0069D5F6 /* Main.storyboard */,
 				5C22A4212376C6AD0069D5F6 /* Assets.xcassets */,
-				5C22A4232376C6AD0069D5F6 /* LaunchScreen.storyboard */,
 				5C22A4262376C6AD0069D5F6 /* Info.plist */,
 				5C22A41E2376C6AB0069D5F6 /* RxMemoEx.xcdatamodeld */,
 			);
@@ -91,7 +128,6 @@
 				C658A38B8BC1D9BF51C58411 /* Pods-RxMemoEx.debug.xcconfig */,
 				B0A9DF52570A52845C911DE9 /* Pods-RxMemoEx.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -210,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C22A41A2376C6AB0069D5F6 /* ViewController.swift in Sources */,
 				5C22A4162376C6AB0069D5F6 /* AppDelegate.swift in Sources */,
 				5C22A4202376C6AB0069D5F6 /* RxMemoEx.xcdatamodeld in Sources */,
 				5C22A4182376C6AB0069D5F6 /* SceneDelegate.swift in Sources */,
@@ -289,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -343,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -361,6 +396,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
 				INFOPLIST_FILE = RxMemoEx/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,6 +416,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CNMQE42DQF;
 				INFOPLIST_FILE = RxMemoEx/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
