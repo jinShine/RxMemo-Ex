@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let listScene = Scene.list(listViewModel)
 
     coordinator.transition(to: listScene, using: .root, animated: false)
+
     return true
   }
 

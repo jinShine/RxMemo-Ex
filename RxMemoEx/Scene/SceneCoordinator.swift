@@ -48,6 +48,7 @@ class SceneCoordinator: SceneCoordinatorType {
       currentViewController.present(target, animated: animated) {
         subject.onCompleted()
       }
+      
       currentViewController = target
     }
 
