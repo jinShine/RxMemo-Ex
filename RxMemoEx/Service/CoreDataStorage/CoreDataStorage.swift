@@ -58,6 +58,7 @@ class CoreDataStorage: MemoStorageType {
 
     do {
       _ = try mainContext.rx.update(updated)
+
       return Observable.just(updated)
     } catch {
       return Observable.error(error)
@@ -73,5 +74,5 @@ class CoreDataStorage: MemoStorageType {
       return Observable.error(error)
     }
   }
-  
+
 }
