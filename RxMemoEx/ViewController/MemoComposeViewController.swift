@@ -55,5 +55,68 @@ class MemoComposeViewController: UIViewController, ViewModelBindableType {
       .withLatestFrom(contentTextView.rx.text.orEmpty)
       .bind(to: viewModel.saveAction.inputs)
       .disposed(by: rx.disposeBag)
+
+    let willShowObservable = NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
+      .map { ($0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height ?? 0 }
+
+    let willHideObservable = NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
+      .map { noti -> CGFloat in return 0 }
+
+    let keyboardObservable = Observable.merge(willShowObservable, willHideObservable).share()
+    keyboardObservable
+      .toContentInset(of: contentTextView)
+      .bind(to: contentTextView.rx.contentInset)
+      .disposed(by: rx.disposeBag)
+
+    keyboardObservable
+      .toContentInset(of: contentTextView)
+      .bind(to: contentTextView.rx.scrollInset)
+      .disposed(by: rx.disposeBag)
+
+  }
+}
+
+// CGFloat만 방출하는 Observable을 뜻한다.
+extension ObservableType where Element == CGFloat {
+  func toContentInset(of textView: UITextView) -> Observable<UIEdgeInsets> {
+    return map { height in
+      var inset = textView.contentInset
+      inset.bottom = height
+      return inset
+    }
+  }
+}
+
+
+/*
+
+ .subscribe(onNext: { [weak self] height in
+   guard let self = self else { return }
+
+   var inset = self.contentTextView.contentInset
+   inset.bottom = height
+
+   var scrollInset = self.contentTextView.scrollIndicatorInsets
+   scrollInset.bottom = height
+
+   UIView.animate(withDuration: 0.3) {
+     self.contentTextView.contentInset = inset
+     self.contentTextView.scrollIndicatorInsets = scrollInset
+   }
+ })
+
+ */
+
+extension Reactive where Base: UITextView {
+  var contentInset: Binder<UIEdgeInsets> {
+    return Binder(self.base) { (textView, inset) in
+      textView.contentInset = inset
+    }
+  }
+
+  var scrollInset: Binder<UIEdgeInsets> {
+    return Binder(self.base) { (textView, inset) in
+      textView.scrollIndicatorInsets = inset
+    }
   }
 }
