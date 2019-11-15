@@ -65,7 +65,9 @@
                         <viewLayoutGuide key="safeArea" id="10c-Ja-I1W"/>
                     </view>
                     <navigationItem key="navigationItem" title="메모 목록" id="MMb-Wu-Q1J">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="r58-M2-z0g"/>
+                        <barButtonItem key="rightBarButtonItem" image="Icon-Plus" style="plain" id="r58-M2-z0g">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -106,13 +108,17 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KiL-zG-ggb">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem systemItem="trash" id="AaV-Iy-e8B">
-                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <barButtonItem image="Icon-Trash" style="plain" id="AaV-Iy-e8B">
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="1dw-9J-FsP"/>
-                                    <barButtonItem systemItem="compose" id="sie-yv-pPo"/>
+                                    <barButtonItem image="Icon-Edit" id="sie-yv-pPo">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Mft-U4-9tG"/>
-                                    <barButtonItem systemItem="action" id="prb-9I-Iea"/>
+                                    <barButtonItem image="Icon-Share" style="plain" id="prb-9I-Iea">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0An-Om-uwW">
@@ -208,8 +214,12 @@
                         <viewLayoutGuide key="safeArea" id="u8P-aM-JR5"/>
                     </view>
                     <navigationItem key="navigationItem" title="새 메모" id="sM5-Ju-d5y">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Df2-Zi-jnL"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="fMM-Sn-MEh"/>
+                        <barButtonItem key="leftBarButtonItem" image="Icon-Back" style="plain" id="Df2-Zi-jnL">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="Icon-Save" style="plain" id="fMM-Sn-MEh">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -228,7 +238,7 @@
                 <navigationController storyboardIdentifier="ComposeNav" automaticallyAdjustsScrollViewInsets="NO" id="PxK-Cc-8Xk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ydi-Fy-23Z">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -241,4 +251,12 @@
             <point key="canvasLocation" x="138" y="1487"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-Back" width="24" height="24"/>
+        <image name="Icon-Edit" width="24" height="24"/>
+        <image name="Icon-Plus" width="24" height="24"/>
+        <image name="Icon-Save" width="24" height="24"/>
+        <image name="Icon-Share" width="24" height="24"/>
+        <image name="Icon-Trash" width="24" height="24"/>
+    </resources>
 </document>

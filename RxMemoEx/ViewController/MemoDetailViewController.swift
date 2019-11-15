@@ -14,16 +14,25 @@ import Action
 class MemoDetailViewController: UIViewController, ViewModelBindableType {
 
   var viewModel: MemoDetailViewModel!
+  var backButton = UIBarButtonItem(image: UIImage(named: "Icon-Back")?.withRenderingMode(.alwaysOriginal),
+                                   style: .plain, target: nil, action: nil)
 
   @IBOutlet weak var listTableView: UITableView!
   @IBOutlet weak var deleteButton: UIBarButtonItem!
   @IBOutlet weak var editButton: UIBarButtonItem!
   @IBOutlet weak var shareButton: UIBarButtonItem!
 
-  override func viewDidLoad() {
-      super.viewDidLoad()
 
-      // Do any additional setup after loading the view.
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    setupUI()
+  }
+
+  private func setupUI() {
+    navigationItem.hidesBackButton = true
+    navigationItem.leftBarButtonItem?.tintColor = .black
+    navigationItem.leftBarButtonItem = backButton
   }
 
   func bindViewModel() {
@@ -49,14 +58,12 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
     }
     .disposed(by: rx.disposeBag)
 
-    var backButton = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
+
     viewModel.title
       .drive(backButton.rx.title)
       .disposed(by: rx.disposeBag)
 
     backButton.rx.action = viewModel.popAction
-    navigationItem.hidesBackButton = true
-    navigationItem.leftBarButtonItem = backButton
 
     deleteButton.rx.action = viewModel.makeDeleteAction()
 
