@@ -54,4 +54,10 @@ class MemoListViewModel: CommonViewModel {
     }
   }()
 
+  lazy var deleteAction: Action<Memo, Never> = {
+    return Action { memo in
+      self.storage.delete(memo: memo).ignoreElements()
+    }
+  }()
+
  }
