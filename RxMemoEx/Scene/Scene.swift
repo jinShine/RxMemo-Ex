@@ -14,6 +14,12 @@ enum Scene {
   case compose(MemoComposeViewModel)
 }
 
+extension UIViewController {
+  var sceneViewController: UIViewController {
+    return self.children.first ?? self
+  }
+}
+
 extension Scene {
 
   func instantiate(from storyboard: String = "Main") -> UIViewController {

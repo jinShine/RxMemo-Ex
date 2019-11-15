@@ -30,26 +30,33 @@ class SceneCoordinator: SceneCoordinatorType {
 
     switch style {
     case .root:
-      currentViewController = target
+      currentViewController = target.sceneViewController
       window.rootViewController = target
       subject.onCompleted()
 
     case .push:
+      
       guard let nav = currentViewController.navigationController else {
         subject.onError(TransitionError.navigationControllerMissing)
         break
       }
 
+      nav.rx.willShow
+        .subscribe(onNext: { [unowned self] evt in
+          self.currentViewController = evt.viewController.sceneViewController
+        })
+        .disposed(by: bag)
+
       nav.pushViewController(target, animated: animated)
-      currentViewController = target
+      currentViewController = target.sceneViewController
       subject.onCompleted()
 
     case .modal:
       currentViewController.present(target, animated: animated) {
         subject.onCompleted()
       }
-      
-      currentViewController = target
+
+      currentViewController = target.sceneViewController
     }
 
     return subject.ignoreElements()
@@ -61,7 +68,7 @@ class SceneCoordinator: SceneCoordinatorType {
 
       if let presentingVC = self?.currentViewController.presentingViewController {
         self?.currentViewController.dismiss(animated: animated, completion: {
-          self?.currentViewController = presentingVC
+          self?.currentViewController = presentingVC.sceneViewController
           completable(.completed)
         })
       } else if let nav = self?.currentViewController.navigationController {
