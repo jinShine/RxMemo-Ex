@@ -1,6 +1,6 @@
 # RxMemo-Ex
 
-This is a simple CRUD-type Memo project using RxSwift and MVVM Pattern.🤗
+This is a simple CRUD-type Memo project using RxSwift and MVVM Pattern.🤗 
 
 ## ScreenShots
 ![1](https://i.imgur.com/fnRpnfa.png?1)
